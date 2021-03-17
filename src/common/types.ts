@@ -8,3 +8,8 @@ export interface RouteElement {
 }
 
 export declare type RoutingConfig = RouteElement[]
+
+export declare type UseSessionStorage = [
+  string,
+  Dispatch<SetStateAction<string>>,
+]

@@ -2,4 +2,10 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: linear-gradient(
+    45deg,
+    var(--teal2) 0%,
+    var(--teal3) 49%,
+    var(--teal4) 100%
+  );
 }

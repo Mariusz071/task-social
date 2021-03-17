@@ -7,7 +7,7 @@ import { Layout } from 'layout'
 
 import { RouteElement } from 'common/types'
 
-import './App.scss'
+import './App.css'
 
 export const App: React.FC = () => (
   <Layout>

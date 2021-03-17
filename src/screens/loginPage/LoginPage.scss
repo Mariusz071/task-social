@@ -1,3 +1,48 @@
 .login {
-  border: 1px solid red;
+  background: var(--bg-dark-1);
+  display: flex;
+  flex: 1;
+  align-self: stretch;
+  justify-content: center;
+  align-items: center;
+
+  &__form-container {
+    display: flex;
+    border-radius: 10px;
+    height: 250px;
+    min-width: 300px;
+    padding: 20px;
+    background: var(--teal2);
+    align-content: center;
+    box-shadow: 0 0 15px 25px rgba(33, 173, 222, 0.4);
+  }
+
+  &__form {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+
+    &__submit {
+      justify-content: flex-end;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding-bottom: 80px;
+  }
+
+  &__field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+      margin-left: 10px;
+    }
+  }
 }

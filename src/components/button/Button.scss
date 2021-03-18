@@ -1,0 +1,29 @@
+.btn {
+  transition: all 0.1s;
+  background: var(--blue-bright);
+  padding: 15px 80px;
+  border: none;
+  color: var(--text-dark);
+  font-weight: 700;
+  border-radius: 20px;
+  outline: none;
+  border: 1px solid transparent;
+
+  &:active,
+  &:focus {
+    outline: none;
+  }
+
+  &:focus {
+    border: 1px solid var(--gray1);
+  }
+
+  &:hover {
+    color: var(--text-light);
+    cursor: pointer;
+  }
+
+  &[disabled] {
+    background: var(--blue-dimmed);
+  }
+}

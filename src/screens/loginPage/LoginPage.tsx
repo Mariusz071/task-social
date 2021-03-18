@@ -24,30 +24,20 @@ export const LoginPage: React.FC = props => {
       <div className='login__form-container'>
         <form className='login__form' onSubmit={handleSubmit}>
           <fieldset className='login__fields'>
-            <div className='login__field'>
-              <label htmlFor='username'> </label>
-              Username
-              <input
-                name='username'
-                placeholder='Enter your username'
-                onChange={e => handleChange(e, setName)}
-                value={username}
-              />
-            </div>
-            <div className='login__field'>
-              <label htmlFor='password'> </label>
-              Password
-              <input
-                name='password'
-                placeholder='Enter your password'
-                onChange={e => handleChange(e, setPassword)}
-                value={password}
-              />
-            </div>
+            <InputField
+              onChange={e => handleChange(e, setName)}
+              label='Username'
+              value={username}
+              id='username'
+            />
+            <InputField
+              onChange={e => handleChange(e, setPassword)}
+              label='Password'
+              value={password}
+              id='password'
+            />
           </fieldset>
-          <button className='btn login__form__submit' type='submit'>
-            Login
-          </button>
+          <Button type='submit' label='Login' disabled={!isValid} />
         </form>
       </div>
     </div>

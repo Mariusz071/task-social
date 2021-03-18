@@ -10,7 +10,7 @@
     display: flex;
     border-radius: 10px;
     height: 250px;
-    min-width: 300px;
+    min-width: 600px;
     padding: 20px;
     background: var(--teal2);
     align-content: center;
@@ -26,13 +26,19 @@
     &__submit {
       justify-content: flex-end;
     }
+
+    & .btn {
+      margin: 0 auto;
+    }
   }
 
   &__fields {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-    padding-bottom: 80px;
+    min-width: 100%;
+  }
+
+  &__field-group:not(:first-child) {
+    margin: 15px 0;
   }
 }

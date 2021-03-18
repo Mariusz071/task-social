@@ -3,6 +3,10 @@
   justify-content: space-between;
   align-items: center;
 
+  &__label {
+    margin-right: 10px;
+  }
+
   &__input {
     padding: 7px 15px;
     border: 1px solid var(--gray1);
@@ -11,6 +15,7 @@
     border-radius: 20px;
     font-size: 13px;
     color: var(--text-light);
+    flex: 1;
 
     &:hover {
       background: #263238;

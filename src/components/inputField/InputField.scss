@@ -1,10 +1,11 @@
 .input-field {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
+  flex: 1;
 
   &__label {
-    margin-right: 10px;
+    align-self: center;
   }
 
   &__input {
@@ -16,6 +17,7 @@
     font-size: 13px;
     color: var(--text-light);
     flex: 1;
+    margin-left: 15px;
 
     &:hover {
       background: #263238;

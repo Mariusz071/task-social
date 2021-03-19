@@ -19,7 +19,7 @@ const initialErrorsState = {
 
 export const LoginPage: React.FC = props => {
   const [username, setName] = useSessionStorage('username')
-  const [password, setPassword] = useSessionStorage('userpassword')
+  const [password, setPassword] = useSessionStorage('password')
   const [errors, setErrors] = React.useState<FormErrors>(initialErrorsState)
 
   const handleChange = (
@@ -52,6 +52,7 @@ export const LoginPage: React.FC = props => {
                 label='Username'
                 value={username}
                 id='username'
+                placeholder='Enter your username'
               />
               {errors.username.map((error, idx) => (
                 <ErrorMessage key={idx} error={error} />
@@ -64,6 +65,7 @@ export const LoginPage: React.FC = props => {
                 label='Password'
                 value={password}
                 id='password'
+                placeholder='Enter your password'
               />
               {errors.password.map((error, idx) => (
                 <ErrorMessage key={idx} error={error} />

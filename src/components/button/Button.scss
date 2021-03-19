@@ -1,13 +1,14 @@
 .btn {
   transition: all 0.1s;
   background: var(--blue-bright);
-  padding: 15px 80px;
+  padding: 10px 30px;
   border: none;
   color: var(--text-dark);
   font-weight: 700;
   border-radius: 20px;
   outline: none;
   border: 1px solid transparent;
+  max-width: 200px;
 
   &:active,
   &:focus {

@@ -14,14 +14,12 @@ export const App: React.FC = () => (
   <Layout>
     <Router history={history}>
       <Switch>
-        <ContextProvider>
-          {routingConfig.map((page: RouteElement) => {
-            const { exact, path, component, id } = page
-            return (
-              <Route key={id} exact={exact} path={path} component={component} />
-            )
-          })}
-        </ContextProvider>
+        {routingConfig.map((page: RouteElement) => {
+          const { exact, path, component, id } = page
+          return (
+            <Route key={id} exact={exact} path={path} component={component} />
+          )
+        })}
       </Switch>
     </Router>
   </Layout>

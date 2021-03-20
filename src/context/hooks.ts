@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 
-import { PostsResponse } from '../screens/wallPage/types'
-import { Post } from 'api/types'
+import { PostResponse } from './types'
+import { Post } from 'api'
 import { fetchPost } from 'api'
 
 const initialPostId = 1
@@ -14,7 +14,7 @@ export const useFetchPosts = (): Post[] => {
   useInterval(
     () => {
       fetchPost(postId)
-        .then((post: PostsResponse) => {
+        .then((post: PostResponse) => {
           setPosts([...posts, post.data])
           setPostId(postId + 1)
         })

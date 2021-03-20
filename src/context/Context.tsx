@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { useFetchPosts } from 'context/hooks'
 import { useSessionStorage } from 'common/hooks'
-import { Post } from 'api/types'
+import { Post } from 'api'
 
 const mockData = [
   {

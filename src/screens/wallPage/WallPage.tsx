@@ -1,8 +1,17 @@
 import * as React from 'react'
 
+import { history } from 'common/history'
 import './WallPage.scss'
 
+const clearUserData = (keys: string[]) => {
+  keys.forEach((key: string) => {
+    window.sessionStorage.setItem(key, '')
+  })
 export const WallPage: React.FC = props => {
+  const onLogout = () => {
+    clearUserData(['username', 'password'])
+    history.push('/')
+  }
   return (
     <div className='wall'>
       <nav className='wall__nav'>

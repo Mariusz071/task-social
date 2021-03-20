@@ -1,5 +1,5 @@
-import { fetchPosts } from './api'
+import { fetchPost } from './api'
 import { Post } from './types'
 
-export { fetchPosts }
+export { fetchPost }
 export type { Post }

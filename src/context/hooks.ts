@@ -1,20 +1,50 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 import { PostsResponse } from '../screens/wallPage/types'
-import { fetchPosts } from 'api'
+import { Post } from 'api/types'
+import { fetchPost } from 'api'
 
-export const useFetchPosts = (postId?: number) => {
-  const [state, setState] = useState<any>(null)
+const initialPostId = 1
 
+export const useFetchPosts = (): Post[] => {
+  const [posts, setPosts] = useState<Post[]>([])
+  const [postId, setPostId] = useState(initialPostId)
+  const [shouldRun, setShouldRun] = useState<boolean>(true)
+
+  useInterval(
+    () => {
+      fetchPost(postId)
+        .then((post: PostsResponse) => {
+          setPosts([...posts, post.data])
+          setPostId(postId + 1)
+        })
+        .catch(e => setShouldRun(false))
+    },
+    shouldRun ? 1000 : null,
+  )
+
+  return posts
+}
+
+const useInterval = (callback: () => void, delay: number | null) => {
+  const prevCallback = useRef<() => void | null>()
+
+  // remember the latest callback
   useEffect(() => {
-    const getPosts = async () => {
-      const posts = (await fetchPosts(postId)) as PostsResponse
+    prevCallback.current = callback
+  })
 
-      setState(posts)
+  // set up the interval
+  useEffect(() => {
+    const tick = () => {
+      if (typeof prevCallback?.current !== 'undefined') {
+        prevCallback?.current()
+      }
     }
 
-    getPosts()
-  }, [postId])
-
-  return state
+    if (delay !== null) {
+      const intervalId = setInterval(tick, delay)
+      return () => clearInterval(intervalId)
+    }
+  }, [delay])
 }

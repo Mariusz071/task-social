@@ -10,6 +10,12 @@
   border: 1px solid transparent;
   max-width: 200px;
 
+  &--long {
+    width: 100%;
+    max-width: none;
+    letter-spacing: 3px;
+  }
+
   &:active,
   &:focus {
     outline: none;

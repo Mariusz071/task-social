@@ -7,6 +7,7 @@ interface Props {
   onClick?: (e: React.MouseEvent<HTMLElement>) => void
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
+  appearance?: 'regular' | 'long'
 }
 
 export const Button: React.FC<Props> = ({
@@ -14,9 +15,15 @@ export const Button: React.FC<Props> = ({
   type = 'button',
   onClick,
   disabled,
+  appearance = 'regular',
 }) => {
   return (
-    <button className='btn' type={type} onClick={onClick} disabled={disabled}>
+    <button
+      className={`btn btn--${appearance}`}
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {label}
     </button>
   )

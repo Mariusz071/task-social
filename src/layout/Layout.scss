@@ -2,10 +2,17 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   background: linear-gradient(
     45deg,
     var(--teal2) 0%,
     var(--teal3) 49%,
     var(--teal4) 100%
   );
+
+  .page-container {
+    width: 100%;
+    max-width: 1600px;
+    padding: 20px;
+  }
 }

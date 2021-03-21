@@ -42,7 +42,7 @@ export const LoginPage: React.FC = props => {
   }
 
   return (
-    <div className='login'>
+    <div className='login page-container'>
       <div className='login__form-container'>
         <form className='login__form' onSubmit={handleSubmit}>
           <fieldset className='login__fields'>

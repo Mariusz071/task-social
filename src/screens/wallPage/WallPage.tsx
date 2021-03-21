@@ -59,7 +59,7 @@ export const WallPage: React.FC = props => {
   }
 
   return (
-    <div className='wall'>
+    <div className='wall page-container'>
       <nav className='wall__nav'>
         <Button label='Logout' type='button' onClick={onLogout} />
         <InputField

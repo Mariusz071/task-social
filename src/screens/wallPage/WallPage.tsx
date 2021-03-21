@@ -3,6 +3,7 @@ import * as React from 'react'
 import { Button } from 'components/button'
 import { InputField } from 'components/inputField'
 import { history } from 'common/history'
+import { Context } from 'context'
 import './WallPage.scss'
 
 const clearUserData = (keys: string[]) => {
@@ -12,6 +13,8 @@ const clearUserData = (keys: string[]) => {
 }
 
 export const WallPage: React.FC = props => {
+  const context = React.useContext(Context)
+  const { posts } = context
   const onLogout = () => {
     clearUserData(['username', 'password'])
     history.push('/')

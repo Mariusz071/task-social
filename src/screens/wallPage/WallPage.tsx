@@ -1,5 +1,7 @@
 import * as React from 'react'
 
+import { Button } from 'components/button'
+import { InputField } from 'components/inputField'
 import { history } from 'common/history'
 import './WallPage.scss'
 
@@ -7,6 +9,8 @@ const clearUserData = (keys: string[]) => {
   keys.forEach((key: string) => {
     window.sessionStorage.setItem(key, '')
   })
+}
+
 export const WallPage: React.FC = props => {
   const onLogout = () => {
     clearUserData(['username', 'password'])
@@ -15,8 +19,13 @@ export const WallPage: React.FC = props => {
   return (
     <div className='wall'>
       <nav className='wall__nav'>
-        <button className='btn wall__logout'>Logout</button>
-        <input className='wall__search' placeholder='Search'></input>
+        <Button label='Logout' type='button' onClick={onLogout} />
+        <InputField
+          placeholder='Search'
+          value={searchQuery}
+          id='search'
+          onChange={handleChange}
+        />
       </nav>
       <main className='wall__main'>
         <div>some posts</div>

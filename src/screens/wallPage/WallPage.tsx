@@ -20,7 +20,13 @@ export const WallPage: React.FC = props => {
   const [col1, setCol1] = React.useState<Post[]>([])
   const [col2, setCol2] = React.useState<Post[]>([])
   const [col3, setCol3] = React.useState<Post[]>([])
+
+  const [searchQuery, setSearchQuery] = React.useState<string>(
+    'random search post',
+  )
+
   const context = React.useContext(Context)
+
   const { posts } = context
 
   React.useEffect(() => {
@@ -47,6 +53,11 @@ export const WallPage: React.FC = props => {
     clearUserData(['username', 'password'])
     history.push('/')
   }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value)
+  }
+
   return (
     <div className='wall'>
       <nav className='wall__nav'>

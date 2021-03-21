@@ -1,7 +1,17 @@
 .wall {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 
   &__nav {
     display: flex;
+    padding: 20px;
+  }
+
+  &__main {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
   }
 }

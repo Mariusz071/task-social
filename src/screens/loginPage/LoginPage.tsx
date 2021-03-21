@@ -52,6 +52,7 @@ export const LoginPage: React.FC = props => {
                 label='Username'
                 value={username}
                 id='username'
+                hasError={!!errors.username.length}
                 placeholder='Enter your username'
               />
               {errors.username.map((error, idx) => (
@@ -65,6 +66,7 @@ export const LoginPage: React.FC = props => {
                 label='Password'
                 value={password}
                 id='password'
+                hasError={!!errors.password.length}
                 placeholder='Enter your password'
               />
               {errors.password.map((error, idx) => (

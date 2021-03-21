@@ -8,6 +8,7 @@ interface Props {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   label?: string
   placeholder?: string
+  hasError?: boolean
 }
 
 export const InputField: React.FC<Props> = ({
@@ -16,6 +17,7 @@ export const InputField: React.FC<Props> = ({
   id,
   onChange,
   placeholder,
+  hasError,
 }) => (
   <div className='input-field'>
     {label && (
@@ -28,7 +30,7 @@ export const InputField: React.FC<Props> = ({
       placeholder={placeholder}
       onChange={onChange}
       value={value}
-      className='input-field__input'
+      className={`input-field__input ${hasError ? 'error' : ''}`}
     />
   </div>
 )

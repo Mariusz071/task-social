@@ -23,6 +23,7 @@ export const useFetchPosts = (): Post[] => {
     shouldRun ? 1000 : null,
   )
 
+  // console.log(posts, 123)
   return posts
 }
 

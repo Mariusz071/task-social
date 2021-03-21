@@ -7,23 +7,13 @@ import { RoutingConfig } from './types'
 
 export const routingConfig: RoutingConfig = [
   {
-    path: '/',
-    id: 'login',
-    exact: true,
-    component: LoginPage,
-  },
-  {
     path: '/:username',
     id: 'wall',
     exact: true,
-    component: () => (
-      <ContextProvider>
-        <WallPage />
-      </ContextProvider>
-    ),
+    component: WallPage,
   },
   {
-    path: '/:username/:id',
+    path: '/:username/:postId',
     id: 'post',
     exact: true,
     component: PostPage,

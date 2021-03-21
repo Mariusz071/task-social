@@ -1,0 +1,22 @@
+.post {
+  color: var(--text-light);
+  background: var(--bg-dark-1);
+  padding: 20px 40px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px 0;
+  min-height: 250px;
+  height: 250x;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  &__user-id {
+    font-size: 36px;
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch, Redirect } from 'react-router-dom'
 
 import { ContextProvider } from 'context'
 import { routingConfig } from 'common/routingConfig'
@@ -8,7 +8,7 @@ import { Layout } from 'layout'
 
 import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorDialog } from 'components/errorDialog'
-import { NotFound } from 'screens/notFound'
+// import { NotFound } from 'screens/notFound'
 import { LoginPage } from 'screens/loginPage'
 
 import { RouteElement } from 'common/types'
@@ -34,8 +34,8 @@ export const App: React.FC = () => (
               )
             })}
           </ContextProvider>
-          <Route component={NotFound} />
         </ErrorBoundary>
+        {/* <Route component={NotFound} /> */}
       </Switch>
     </Router>
   </Layout>

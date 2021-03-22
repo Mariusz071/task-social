@@ -15,3 +15,10 @@
   as usually we dont know those things
 - **better organisation of responsive styling**
 - better design of NotFound page
+- figure out why NotFound page stopped to appear
+
+## To run locally:
+
+- clone this repository
+- go to the cloned repository directory
+- run `npm start`

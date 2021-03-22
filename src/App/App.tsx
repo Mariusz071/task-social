@@ -6,14 +6,14 @@ import { routingConfig } from 'common/routingConfig'
 import { history } from 'common/history'
 import { Layout } from 'layout'
 
-import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
+import { ErrorBoundary } from 'react-error-boundary'
 import { ErrorDialog } from 'components/errorDialog'
 import { NotFound } from 'screens/notFound'
+import { LoginPage } from 'screens/loginPage'
 
 import { RouteElement } from 'common/types'
 
 import './App.css'
-import { LoginPage } from 'screens/loginPage'
 
 export const App: React.FC = () => (
   <Layout>

@@ -11,7 +11,7 @@ export const useFetchPosts = (searchQuery: string): Post[] => {
   const [posts, setPosts] = useState<Post[]>([])
   const [postId, setPostId] = useState(initialPostId)
   const [shouldRun, setShouldRun] = useState<boolean>(true)
-  const [error, setError] = useState(null)
+  const [, setError] = useState(null)
 
   const isFiltering = searchQuery !== ''
 

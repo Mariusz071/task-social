@@ -10,6 +10,7 @@ export const useFetchPosts = (searchQuery: string): Post[] => {
   const [posts, setPosts] = useState<Post[]>([])
   const [postId, setPostId] = useState(initialPostId)
   const [shouldRun, setShouldRun] = useState<boolean>(true)
+  const [error, setError] = useState(null)
 
   const isFiltering = searchQuery !== ''
 
@@ -20,7 +21,14 @@ export const useFetchPosts = (searchQuery: string): Post[] => {
           setPosts([...posts, post.data])
           setPostId(postId + 1)
         })
-        .catch(e => setShouldRun(false))
+        .catch(e => {
+          setShouldRun(false)
+
+          //hack to make error boundary catch the error from custom hook - couldt figure out  a better way
+          setError(() => {
+            throw e
+          })
+        })
     },
     shouldRun && !isFiltering ? 1000 : null,
   )

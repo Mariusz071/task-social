@@ -1,0 +1,33 @@
+.error-fallback {
+  width: 100%;
+  flex: 1;
+  display: flex;
+
+  &__overlay {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__dialog {
+    padding: 0 35px;
+    min-width: 500px;
+    background: var(--teal1);
+    color: var(--error);
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 150px;
+    box-shadow: 0 0 15px 25px rgba(251, 83, 126, 0.4);
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 50px;
+  }
+}

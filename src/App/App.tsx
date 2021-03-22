@@ -6,6 +6,9 @@ import { routingConfig } from 'common/routingConfig'
 import { history } from 'common/history'
 import { Layout } from 'layout'
 
+import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
+import { ErrorDialog } from 'components/errorDialog'
+
 import { RouteElement } from 'common/types'
 
 import './App.css'
@@ -16,14 +19,21 @@ export const App: React.FC = () => (
     <Router history={history}>
       <Switch>
         <Route key={'login'} exact path='/' component={LoginPage} />
-        <ContextProvider>
-          {routingConfig.map((page: RouteElement) => {
-            const { exact, path, component, id } = page
-            return (
-              <Route key={id} exact={exact} path={path} component={component} />
-            )
-          })}
-        </ContextProvider>
+        <ErrorBoundary FallbackComponent={ErrorDialog}>
+          <ContextProvider>
+            {routingConfig.map((page: RouteElement) => {
+              const { exact, path, component, id } = page
+              return (
+                <Route
+                  key={id}
+                  exact={exact}
+                  path={path}
+                  component={component}
+                />
+              )
+            })}
+          </ContextProvider>
+        </ErrorBoundary>
       </Switch>
     </Router>
   </Layout>

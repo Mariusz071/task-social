@@ -5,6 +5,7 @@ import { Post } from 'api'
 import { fetchPost } from 'api'
 
 const initialPostId = 1
+const MAX_POSTS_NUMBER = 100
 
 export const useFetchPosts = (searchQuery: string): Post[] => {
   const [posts, setPosts] = useState<Post[]>([])
@@ -30,7 +31,8 @@ export const useFetchPosts = (searchQuery: string): Post[] => {
           })
         })
     },
-    shouldRun && !isFiltering ? 1000 : null,
+    //todo figure out other way to stop fetching posts after last one is fetched
+    shouldRun && !isFiltering && postId <= MAX_POSTS_NUMBER ? 1000 : null,
   )
 
   // console.log(posts, 123)

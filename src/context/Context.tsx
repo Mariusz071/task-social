@@ -99,9 +99,9 @@ export const ContextProvider: React.FC<Props> = ({ children }) => {
   const [username] = useSessionStorage('username')
 
   const userData = { username }
-  // const posts = useFetchPosts()
+  const posts = useFetchPosts()
 
-  const value: ContextValue = { posts: mockData, userData }
+  const value: ContextValue = { posts, userData }
 
   return <Context.Provider value={value}>{children}</Context.Provider>
 }

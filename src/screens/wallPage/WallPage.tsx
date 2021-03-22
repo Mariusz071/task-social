@@ -16,11 +16,21 @@ const clearUserData = (keys: string[]) => {
   })
 }
 
-export const WallPage: React.FC = props => {
-  const [col1, setCol1] = React.useState<Post[]>([])
-  const [col2, setCol2] = React.useState<Post[]>([])
-  const [col3, setCol3] = React.useState<Post[]>([])
+interface SortedPosts {
+  col1: Post[]
+  col2: Post[]
+  col3: Post[]
+}
 
+const initialSortedPosts = {
+  col1: [],
+  col2: [],
+  col3: [],
+}
+export const WallPage: React.FC = props => {
+  const [sortedPosts, setSortedPosts] = React.useState<SortedPosts>(
+    initialSortedPosts,
+  )
   const [searchQuery, setSearchQuery] = React.useState<string>(
     'random search post',
   )
@@ -30,23 +40,33 @@ export const WallPage: React.FC = props => {
   const { posts } = context
 
   React.useEffect(() => {
-    const lastPost = posts[posts.length - 1]
+    const sort = () => {
+      const col1: Post[] = []
+      const col2: Post[] = []
+      const col3: Post[] = []
 
-    if (!lastPost) {
-      return
+      posts.forEach((post: Post) => {
+        if (!posts.length) {
+          return
+        }
+
+        if (post.id % 3 === 1) {
+          col1.push(post)
+        }
+
+        if (post.id % 3 === 0) {
+          col3.push(post)
+        }
+
+        if (post.id % 3 === 2) {
+          col2.push(post)
+        }
+      })
+
+      return { col1, col2, col3 }
     }
 
-    if (lastPost.id % 3 === 1) {
-      return setCol1([...col1, lastPost])
-    }
-
-    if (lastPost.id % 3 === 0) {
-      return setCol3([...col3, lastPost])
-    }
-
-    if (lastPost.id % 3 === 2) {
-      return setCol2([...col2, lastPost])
-    }
+    setSortedPosts(sort())
   }, [posts])
 
   const onLogout = () => {
@@ -70,9 +90,9 @@ export const WallPage: React.FC = props => {
         />
       </nav>
       <main className='wall__main'>
-        <WallColumn posts={col1} />
-        <WallColumn posts={col2} />
-        <WallColumn posts={col3} />
+        <WallColumn posts={sortedPosts.col1} />
+        <WallColumn posts={sortedPosts.col2} />
+        <WallColumn posts={sortedPosts.col3} />
       </main>
     </div>
   )

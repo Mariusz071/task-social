@@ -26,7 +26,7 @@ export const PostPage: React.FC<
 
   const post = posts.find(post => post.id === numberifiedId)
 
-  const navigateToWall = () => history.replace(`/${username}`)
+  const navigateToWall = () => history.replace(`/wall/${username}`)
 
   return (
     <div className='post-page page-container'>

@@ -38,7 +38,7 @@ export const LoginPage: React.FC = props => {
       return
     }
 
-    history.push(`/${username}`)
+    history.push(`/wall/${username}`)
   }
 
   return (

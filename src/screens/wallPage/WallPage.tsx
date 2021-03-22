@@ -7,15 +7,11 @@ import { WallColumn } from 'components/wallColumn'
 import { history } from 'common/history'
 import { Context } from 'context'
 import { sort, filter, initialSortedPosts } from './utils'
+import { clearUserData } from 'common/utils'
+
 import { GroupedPosts } from './types'
 
 import './WallPage.scss'
-
-const clearUserData = (keys: string[]) => {
-  keys.forEach((key: string) => {
-    window.sessionStorage.setItem(key, '')
-  })
-}
 
 export const WallPage: React.FC = props => {
   const [sortedPosts, setSortedPosts] = React.useState<GroupedPosts>(

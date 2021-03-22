@@ -82,6 +82,8 @@ export const Context = React.createContext({
   userData: {
     username: '',
   },
+  setSearchQuery: (searchQuery: string) => ({}),
+  searchQuery: '',
 })
 
 interface Props {
@@ -93,15 +95,19 @@ interface ContextValue {
     username: string
   }
   posts: Post[]
+  searchQuery: string
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>
 }
 
 export const ContextProvider: React.FC<Props> = ({ children }) => {
+  const [searchQuery, setSearchQuery] = React.useState<string>('')
+
   const [username] = useSessionStorage('username')
-
   const userData = { username }
-  const posts = useFetchPosts()
+  const posts = useFetchPosts(searchQuery)
 
-  const value: ContextValue = { posts, userData }
+  const value: ContextValue = { posts, userData, searchQuery, setSearchQuery }
 
+  //@ts-ignore
   return <Context.Provider value={value}>{children}</Context.Provider>
 }

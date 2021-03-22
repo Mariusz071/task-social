@@ -6,7 +6,8 @@ import { WallColumn } from 'components/wallColumn'
 
 import { history } from 'common/history'
 import { Context } from 'context'
-import { Post } from 'api'
+import { sort, filter, initialSortedPosts } from './utils'
+import { GroupedPosts } from './types'
 
 import './WallPage.scss'
 
@@ -16,57 +17,23 @@ const clearUserData = (keys: string[]) => {
   })
 }
 
-interface SortedPosts {
-  col1: Post[]
-  col2: Post[]
-  col3: Post[]
-}
-
-const initialSortedPosts = {
-  col1: [],
-  col2: [],
-  col3: [],
-}
 export const WallPage: React.FC = props => {
-  const [sortedPosts, setSortedPosts] = React.useState<SortedPosts>(
+  const [sortedPosts, setSortedPosts] = React.useState<GroupedPosts>(
     initialSortedPosts,
-  )
-  const [searchQuery, setSearchQuery] = React.useState<string>(
-    'random search post',
   )
 
   const context = React.useContext(Context)
 
-  const { posts } = context
+  const { posts, searchQuery, setSearchQuery } = context
 
   React.useEffect(() => {
-    const sort = () => {
-      const col1: Post[] = []
-      const col2: Post[] = []
-      const col3: Post[] = []
-
-      posts.forEach((post: Post) => {
-        if (!posts.length) {
-          return
-        }
-
-        if (post.id % 3 === 1) {
-          col1.push(post)
-        }
-
-        if (post.id % 3 === 0) {
-          col3.push(post)
-        }
-
-        if (post.id % 3 === 2) {
-          col2.push(post)
-        }
-      })
-
-      return { col1, col2, col3 }
+    if (searchQuery !== '') {
+      setSortedPosts(filter(posts, searchQuery))
     }
+  }, [searchQuery, posts])
 
-    setSortedPosts(sort())
+  React.useEffect(() => {
+    setSortedPosts(sort(posts))
   }, [posts])
 
   const onLogout = () => {

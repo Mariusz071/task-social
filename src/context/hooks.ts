@@ -6,10 +6,12 @@ import { fetchPost } from 'api'
 
 const initialPostId = 1
 
-export const useFetchPosts = (): Post[] => {
+export const useFetchPosts = (searchQuery: string): Post[] => {
   const [posts, setPosts] = useState<Post[]>([])
   const [postId, setPostId] = useState(initialPostId)
   const [shouldRun, setShouldRun] = useState<boolean>(true)
+
+  const isFiltering = searchQuery !== ''
 
   useInterval(
     () => {
@@ -20,7 +22,7 @@ export const useFetchPosts = (): Post[] => {
         })
         .catch(e => setShouldRun(false))
     },
-    shouldRun ? 1000 : null,
+    shouldRun && !isFiltering ? 1000 : null,
   )
 
   // console.log(posts, 123)

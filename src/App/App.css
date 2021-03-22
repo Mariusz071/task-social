@@ -38,8 +38,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   color: var(--text-light);
+  font-size: 12px;
 }
 
 fieldset {
   border: none;
+}
+
+@media (max-width: 655px) {
+  html {
+    font-size: 11px;
+  }
 }

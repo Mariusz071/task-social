@@ -5,8 +5,7 @@
 
   &__nav {
     display: flex;
-    padding: 0 10px 20px 10px;
-    flex-wrap: wrap;
+    padding-bottom: 20px;
   }
 
   &__main {
@@ -14,5 +13,40 @@
     justify-content: space-between;
     flex: 1;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 930px) {
+  .wall {
+    &__nav {
+      .btn {
+        flex: 1;
+        max-width: 300px;
+      }
+
+      .input-field {
+        flex: 1;
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .wall {
+    &__main {
+      justify-content: center;
+    }
+
+    &__nav {
+      flex-direction: column;
+
+      .btn {
+        max-width: none;
+      }
+
+      .input-field input {
+        margin: 10px 0 0 0;
+      }
+    }
   }
 }

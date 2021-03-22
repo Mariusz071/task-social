@@ -43,3 +43,31 @@
     margin: 15px 0;
   }
 }
+
+@media (max-width: 700px) {
+  .login {
+    &__form-container {
+      height: 350px;
+      min-width: 400px;
+    }
+
+    .input-field {
+      flex-direction: column;
+
+      label {
+        font-size: 2rem;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      input {
+        margin-left: 0;
+        font-size: 1.5rem;
+      }
+    }
+
+    .btn {
+      min-width: 400px;
+    }
+  }
+}

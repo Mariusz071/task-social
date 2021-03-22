@@ -1,4 +1,10 @@
 .error {
   color: var(--error);
-  font-size: 13px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 655px) {
+  .error {
+    font-size: 1.25rem;
+  }
 }

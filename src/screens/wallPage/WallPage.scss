@@ -5,12 +5,14 @@
 
   &__nav {
     display: flex;
-    padding-bottom: 20px;
+    padding: 0 10px 20px 10px;
+    flex-wrap: wrap;
   }
 
   &__main {
     display: flex;
     justify-content: space-between;
     flex: 1;
+    flex-wrap: wrap;
   }
 }

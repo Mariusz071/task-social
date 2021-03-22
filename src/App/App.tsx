@@ -8,6 +8,7 @@ import { Layout } from 'layout'
 
 import { ErrorBoundary, FallbackProps } from 'react-error-boundary'
 import { ErrorDialog } from 'components/errorDialog'
+import { NotFound } from 'screens/notFound'
 
 import { RouteElement } from 'common/types'
 
@@ -33,6 +34,7 @@ export const App: React.FC = () => (
               )
             })}
           </ContextProvider>
+          <Route component={NotFound} />
         </ErrorBoundary>
       </Switch>
     </Router>

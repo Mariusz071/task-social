@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/%7Btask-social%7D/static/css/main.15026d9e.chunk.css",
+    "main.js": "/%7Btask-social%7D/static/js/main.fb4d248d.chunk.js",
+    "main.js.map": "/%7Btask-social%7D/static/js/main.fb4d248d.chunk.js.map",
+    "runtime-main.js": "/%7Btask-social%7D/static/js/runtime-main.11a8fa18.js",
+    "runtime-main.js.map": "/%7Btask-social%7D/static/js/runtime-main.11a8fa18.js.map",
+    "static/js/2.764e39cb.chunk.js": "/%7Btask-social%7D/static/js/2.764e39cb.chunk.js",
+    "static/js/2.764e39cb.chunk.js.map": "/%7Btask-social%7D/static/js/2.764e39cb.chunk.js.map",
+    "index.html": "/%7Btask-social%7D/index.html",
+    "static/css/main.15026d9e.chunk.css.map": "/%7Btask-social%7D/static/css/main.15026d9e.chunk.css.map",
+    "static/js/2.764e39cb.chunk.js.LICENSE.txt": "/%7Btask-social%7D/static/js/2.764e39cb.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.11a8fa18.js",
+    "static/js/2.764e39cb.chunk.js",
+    "static/css/main.15026d9e.chunk.css",
+    "static/js/main.fb4d248d.chunk.js"
+  ]
+}

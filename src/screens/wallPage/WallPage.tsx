@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { RouteComponentProps } from 'react-router-dom'
 
 import { Button } from 'components/button'
 import { InputField } from 'components/inputField'
@@ -8,12 +9,24 @@ import { history } from 'common/history'
 import { Context } from 'context'
 import { sort, filter, initialSortedPosts } from './utils'
 import { clearUserData } from 'common/utils'
+import { useSessionStorage } from 'common/hooks'
 
 import { GroupedPosts } from './types'
+import { MatchParams } from 'common/types'
 
 import './WallPage.scss'
 
-export const WallPage: React.FC = props => {
+export const WallPage: React.FC<RouteComponentProps<MatchParams>> = ({
+  match,
+}) => {
+  const [username] = useSessionStorage('username')
+
+  if (username !== match.params.username) {
+    throw new Error(
+      `User ${match.params.username} is not logged in. Please go to login page.`,
+    )
+  }
+
   const [sortedPosts, setSortedPosts] = React.useState<GroupedPosts>(
     initialSortedPosts,
   )

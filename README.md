@@ -21,4 +21,4 @@
 
 - clone this repository
 - go to the cloned repository directory
-- run `npm start`
+- run `npm i && npm start`
